@@ -10,6 +10,7 @@ sum(amount_sold*
          when mod(rownum,2)=1 then 1.2
          else 1
     end )) receipts
+    
 FROM sh.sales, sh.times, sh.customers, sh.countries, sh.products
 WHERE sales.time_id = times.time_id AND
 sales.prod_id = products.prod_id AND
