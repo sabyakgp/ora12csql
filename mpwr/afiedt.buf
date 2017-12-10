@@ -1,0 +1,2 @@
+select to_char(123456,'B9999.99') from dual
+/
