@@ -1,7 +1,12 @@
 CREATE OR REPLACE PROCEDURE ERRORLOG
 is 
+
+lv_number number;
+
 BEGIN
-	
+
+	DELETE FROM err$_T2EXCP;
+
 	INSERT 
 		INTO T2 
 	SELECT 
@@ -13,9 +18,26 @@ BEGIN
 	LOG ERRORS INTO err$_T2EXCP ('T2_INSERT') REJECT LIMIT UNLIMITED;
 
 	COMMIT;
+
+	lv_number := 0;
+
+	SELECT 
+		1 
+	INTO
+		lv_number
+	FROM err$_T2EXCP
+	WHERE ROWNUM = 1 AND ORA_ERR_TAG$ = 'T2_INSERT';
+
+	IF lv_number > 0 THEN 
+	   RAISE_APPLICATION_ERROR (-20001, 'Error while inserting into T2. Check err$_T2EXCP');
+	ELSE
+		NULL;
+	END IF;
+
 	
 EXCEPTION 
 	WHEN OTHERS THEN 
 	RAISE;
 END ERRORLOG;
 /
+SHOW ERRORS	
