@@ -1,2 +1,0 @@
-#to download files from a site
-wget -r -np -k http://courses.washington.edu/css490/2012.Winter/lecture_slides/
