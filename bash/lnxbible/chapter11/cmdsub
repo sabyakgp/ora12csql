@@ -1,0 +1,10 @@
+#!/bin/bash
+#testing command substitution
+dtvar=`date`
+echo "Current date: " $dtvar
+#alternately 
+dtvar=$(date)
+echo "Current date: " $dtvar
+#creating a logfile with dates suffixed
+today=$(date +%y%m%d)
+ls $HOME -al > log.$today

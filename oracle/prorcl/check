@@ -1,0 +1,35 @@
+#!/bin/bash
+ind1=1
+ind2=2
+for x in $(ls);
+  do 
+    if [ -d "$x" ] ; then 
+        hyph=`awk 'BEGIN {
+	str="-"
+	ret=index("'$x'", str)
+	print ret
+	}'`
+	if [ "$hyph" -gt 0 ] ; then
+           echo $hyph
+	   ind3=`expr "$hyph" - 2`
+	   echo "ind3: $ind3"
+	   ind4=`expr "$hyph" - 1`
+	   echo "ind4: $ind4"
+	   name=`echo "$x" | cut -c"$ind1"-"$ind2"`
+	   echo $name
+	   suffix=$(echo "$x" | cut -c"$ind3"-"$ind4")
+	   name+="$suffix"
+	   echo $x
+	   echo $name
+	   mv $x $name
+	else 
+           name=`echo "$x" | cut -c"$ind1"-"$ind2"`
+	   suffix=$(echo "$x" | cut -c8-9)
+	   name+="$suffix"
+	   echo $x
+	   echo $name
+	   mv $x $name
+	fi
+    fi
+  done
+exit 0

@@ -1,0 +1,25 @@
+#!/bin/bash
+#soring in bash shell
+#sort ./pkg.list
+#sorting numbers
+sort -n number
+#sort three-character month
+sort -M months
+#sort three-character month in reverse
+sort -rM months
+#don't sort just check and report
+sort -c months
+#sort based on keys and ignore case
+#sort -fk 1,8 data
+#sort based muliple keys - not adjacent
+OUTPUT=/home/soso/projects/bash/lnxbible/chapter4/data1.sorted
+echo $OUTPUT
+if [ -f $OUTPUT ]; then
+  touch $OUTPUT
+fi
+sort -o $OUTPUT -fk1,5 -nrfk20,22 data1
+#sort comma delimited files on a specified field
+touch payment.sorted
+sort -o payment.sorted -t ',' -k 5 -n ./payment
+
+

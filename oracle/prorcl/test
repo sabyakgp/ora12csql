@@ -1,0 +1,4 @@
+#!/bin/bash
+val=10
+val=`expr $val + 10`
+echo $val

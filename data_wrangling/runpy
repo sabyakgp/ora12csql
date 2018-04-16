@@ -1,0 +1,12 @@
+#!/bin/bash
+code='code/'"$1"
+if [ -z $1 ] 
+then
+  echo "Python program missing!"
+  exit 1
+elif ls -d $code
+then
+  /usr/bin/python3.5 $code
+else 
+  echo "program $code does not exist"
+fi
