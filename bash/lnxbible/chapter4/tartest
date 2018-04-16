@@ -1,3 +1,0 @@
-#!/bin/bash
-#tar -cvf chapter4.tar ./
-tar -tf ./tar/chapter4.tar

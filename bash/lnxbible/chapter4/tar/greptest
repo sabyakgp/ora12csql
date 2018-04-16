@@ -1,9 +1,0 @@
-#!/bin/bash
-#search for a pattern
-grep S104 ./payment
-#search for line number
-grep -n S104 ./payment
-#see how many lines contain the pattern
-grep -c BATCH001 ./payment
-#search muliple patterns
-grep -e 200 -e 0012 ./payment

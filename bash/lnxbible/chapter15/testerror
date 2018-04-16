@@ -1,5 +1,0 @@
-this should go to testerror
-./redir.sh: line 8: syntax error near unexpected token `&'
-./redir.sh: line 8: `echo "this too should go to output" >>&1'
-this should go to testerror
-this should go to testerror
