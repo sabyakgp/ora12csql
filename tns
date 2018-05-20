@@ -1,0 +1,10 @@
+LISTENER = (ADDRESS = (PROTOCOL = TCP)(HOST = oracle-db-12c)(PORT = 1521))
+orcl =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = oracle-db-12c)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = orcl)
+    )
+  )
