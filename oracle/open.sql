@@ -1,0 +1,1 @@
+alter pluggable database orclpdb open read write;
